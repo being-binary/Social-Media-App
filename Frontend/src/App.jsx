@@ -21,7 +21,7 @@ function App() {
   const user = useSelector((state) => state.user)
   const login = user.token ? true : false
   const dispatch = useDispatch()
-  console.log(url)
+  
   useEffect(()=>{
     if(login){
       dispatch(fetchUserByToken())
