@@ -16,12 +16,12 @@ import UserPostComponent from './components/UserPostComponent';
 import FriendPage from './pages/FriendPage'
 import ChatPage from './pages/ChatPage'
 import { connectSocket } from './app/slices/SocketSlice';
-
+import url from '../select_url';
 function App() {
   const user = useSelector((state) => state.user)
   const login = user.token ? true : false
   const dispatch = useDispatch()
-
+  console.log(url)
   useEffect(()=>{
     if(login){
       dispatch(fetchUserByToken())

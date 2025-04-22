@@ -1,9 +1,9 @@
 import axios from 'axios'
 import {updateloading} from '../app/slices/UserSlice'
 import { toasterror, toastsuccess, toastwarning } from '../components/Toast';
-
+import url from '../../select_url';
 const axiosInstance = axios.create({
-    baseURL : 'http://localhost:8082',
+    baseURL : url,
     headers : {
         "Content-Type" : "application/json"
     },

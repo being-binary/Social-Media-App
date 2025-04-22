@@ -22,8 +22,8 @@ const SidebarComponent = (props) => {
         try {
             const formdata = new FormData()
             formdata.append('file', e.target.files[0])
-            formdata.append('upload_preset', 'Base Folder')
-            const res = await fetch(`https://api.cloudinary.com/v1_1/dwpggkbsx/upload`, {
+            formdata.append('upload_preset', import.meta.VITE_UPLOAD_PRESET)
+            const res = await fetch(import.meta.VITE_CLOUDINARY_LINK, {
                 method: "POST",
                 mode: "cors",
                 body: formdata
