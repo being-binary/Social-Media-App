@@ -18,7 +18,7 @@ const scoketManager = new SocketManager(server)
 scoketManager.initSocketEvents()
 
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin:['http://localhost:5173', 'https://social-media-app-amber-eight.vercel.app'],
     credentials: true
 }))
 app.use(express.json())
