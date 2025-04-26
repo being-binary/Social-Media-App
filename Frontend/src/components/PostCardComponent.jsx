@@ -73,7 +73,7 @@ const PostCardComponent = (props) => {
     };
     return (
         <Card
-            style={{ width: 500, margin: '10px auto', borderRadius: 10, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}
+            style={{ width: 450, margin: '10px auto', borderRadius: 10, boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)' }}
         >
             {/* Post Header */}
             <Row align="middle" gutter={16} style={{ borderBottom: '1px solid black', margin: "0 0 7px 0", paddingBottom: '10px' }}>

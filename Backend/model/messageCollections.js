@@ -21,7 +21,7 @@ const messageSchema = new mongoose.Schema({
         secure_url: String
     }]
 
-},{timeStamp})
+},{timeStamp:true})
 
 const Messages = mongoose.model('messages', messageSchema)
 

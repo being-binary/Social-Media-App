@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const ButtonResponsive = ({ path, text }) => {
   return (
     <Row gutter={[16, 16]}>
-      <Col xs={24} sm={12} md={8} lg={24} style={{marginTop:'15px'}}>
-        <Link to={`${path}`}>
+      <Col xs={0} sm={0} md={0} lg={24}>
+        <Link to={path}>
           <Button type="primary" block>
             {text}
           </Button>
@@ -15,5 +15,5 @@ const ButtonResponsive = ({ path, text }) => {
     </Row>
   );
 };
-export default ButtonResponsive
 
+export default ButtonResponsive;

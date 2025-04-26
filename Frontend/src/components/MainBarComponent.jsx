@@ -28,7 +28,7 @@ const MainBarComponent = (props) => {
   }, [props?.value?.userPosts]);
 
   return (
-    <div className=' lg:ms-[350px] md:ms-[150px] m-auto'>
+    <div className='lg:ps-[350px] md:ps-[120px] sm:m-0 m-auto'>
       <div>
         <PostUploadComponent />
         {

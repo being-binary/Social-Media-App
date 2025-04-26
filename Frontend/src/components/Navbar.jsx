@@ -3,7 +3,7 @@ import { Link, Navigate } from 'react-router-dom'
 import { GiHamburgerMenu } from "react-icons/gi";
 import axiosInstance from '../api/AxiosInstance';
 const Navbar = (props) => {
-
+  const [showNavbar, setShowNavbar] = useState(false)
   const [searchuser, setSearchUser] = useState([]);
 
   const handleChange = async (e)=>{
@@ -24,7 +24,7 @@ const Navbar = (props) => {
     <nav className={`w-full h-[70px] bg-blue-500  fixed  ${!props.value.login ? 'hidden' : ''} z-50 `}>
       <div className='w-full h-full flex flex-row items-center justify-between px-10 relative '>
         <p className="text-2xl font-semibold text-white">Connectify</p>
-        <GiHamburgerMenu className='sm:hidden block text-2xl text-white cursor-pointer hover:text-green-400 hover:scale-110 transfrom transform-transition ' />
+        <GiHamburgerMenu onClick={()=>setShowNavbar(!showNavbar)} className='sm:hidden block text-2xl text-white cursor-pointer hover:text-green-400 hover:scale-110 transfrom transform-transition ' />
           
         <ul className='sm:flex flex-row hidden gap-5'>
         {
@@ -52,7 +52,7 @@ const Navbar = (props) => {
             props.value.login && <li className='text-xl text-white'><Link to={'/home'}>Home</Link></li>
           }
         </ul>
-        <div className='sm:hidden block absolute top-[100%] left-0 w-full text-black bg-blue-400'>
+        {showNavbar && <div className='sm:hidden block absolute top-[100%] left-0 w-full text-black bg-blue-400'>
           <ul>
             {
               props.value.login && <li className='text-xl text-white text-center border-t-1  py-4 tracking-wide'><Link to={'/user/logout'}>Logout</Link></li>
@@ -64,7 +64,7 @@ const Navbar = (props) => {
               props.value.login && <li className='text-xl text-white text-center border-t-1  py-4 tracking-wide'><Link to={''}>Profile</Link></li>
             }
           </ul>
-        </div>
+        </div>}
       </div>
     </nav>
   )

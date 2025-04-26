@@ -70,6 +70,27 @@ class MessagesController {
         }
     }
     
+    async GetMessagesByUser(req, res){
+        try{
+            const { id } = req
+            
+            const messages = await ConversationCollection.find({members:id}).populate({ path: 'members', select: '_id name profilePic' }).populate({ path: 'message', select: 'message createdAt'})
+            
+            messages.forEach(conversation => {
+                conversation.message = conversation.message.slice(-1);
+            });
+
+            if(messages.length>0){
+                return res.status(200).json({msg:'message found successfull', success:true, messages})
+            }
+            else{
+               return  res.status(404).json({msg:'message not found unsuccessfull', success:false})
+            }
+
+        }catch(error){
+            return res.status(500).json({msg:error.message, success:false})
+        }
+    }
 }
 
 export default new MessagesController()

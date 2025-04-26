@@ -45,10 +45,19 @@ class FileUpload {
             const result = await cloudinary.uploadImages(req.files)
             console.log(Array.isArray(result));
             const media = result.map((media) => {
-               return {secure_url: media.secure_url, public_id: media.public_id}
+                return { secure_url: media.secure_url, public_id: media.public_id }
             });
             req.media = media
-            console.log('test',req.body)
+
+            // Process the file (e.g., upload to cloud storage)
+            // After processing, delete the file
+            // for (const file of req.files) {
+            //     fs.unlink(file.path, (err) => {
+            //         if (err) {
+            //             console.error('Error deleting file:', err);
+            //         }
+            //     });
+            // }
             next()
         } catch (err) {
             res.status(400).json({ msg: 'Upload Unsuccessful', success: false, files: req.files });
