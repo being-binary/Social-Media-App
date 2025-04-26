@@ -15,7 +15,7 @@ class FileUpload {
             storage: multer.diskStorage({
                 destination: function (req, file, cb) {
                     // Set the specific directory for photos
-                    const uploadPath = path.join(__dirname, '../../uploads/photos/upload');
+                    const uploadPath = path.join(__dirname, '../../uploads/');
                     cb(null, uploadPath);
                 },
                 filename: function (req, file, cb) {
