@@ -24,9 +24,9 @@ const Navbar = (props) => {
     <nav className={`w-full h-[70px] bg-blue-500  fixed  ${!props.value.login ? 'hidden' : ''} z-50 `}>
       <div className='w-full h-full flex flex-row items-center justify-between px-10 relative '>
         <p className="text-2xl font-semibold text-white">Connectify</p>
-        <GiHamburgerMenu onClick={()=>setShowNavbar(!showNavbar)} className='sm:hidden block text-2xl text-white cursor-pointer hover:text-green-400 hover:scale-110 transfrom transform-transition ' />
+        <GiHamburgerMenu onClick={()=>setShowNavbar(!showNavbar)} className='md:hidden block text-2xl text-white cursor-pointer hover:text-green-400 hover:scale-110 transfrom transform-transition ' />
           
-        <ul className='sm:flex flex-row hidden gap-5'>
+        <ul className='md:flex flex-row hidden gap-5'>
         {
             props.value.login && <li className='relative'> <input type="text" name="search" id="search" className='bg-white text-black px-2 py-1 rounded-md' onChange={handleChange} />
             {
@@ -43,16 +43,13 @@ const Navbar = (props) => {
             props.value.login && <li className='text-xl text-white'><Link to={'/user/logout'}>Logout</Link></li>
           }
           {
-            props.value.login && <li className='text-xl text-white capitalize'><Link to={''}>{`${props.value.entity.name?.firstName} ${props.value.entity.name?.lastName}`}</Link></li>
-          }
-          {
-            props.value.login && <li className='text-xl text-white'><Link to={''}>Profile</Link></li>
+            props.value.login && <li className='text-xl text-white capitalize'><p >{`${props.value.entity.name?.firstName} ${props.value.entity.name?.lastName}`}</p></li>
           }
           {
             props.value.login && <li className='text-xl text-white'><Link to={'/home'}>Home</Link></li>
           }
         </ul>
-        {showNavbar && <div className='sm:hidden block absolute top-[100%] left-0 w-full text-black bg-blue-400'>
+        {showNavbar && <div className='md:hidden block absolute top-[100%] left-0 w-full text-black bg-blue-400'>
           <ul>
             {
               props.value.login && <li className='text-xl text-white text-center border-t-1  py-4 tracking-wide'><Link to={'/user/logout'}>Logout</Link></li>

@@ -29,7 +29,7 @@ const Signup = () => {
   }
 
   return (
-    <main className="flex items-center justify-center  w-full h-[110vh] ">
+    <main className="flex items-center justify-center  w-[1328px] h-[720px] ">
       <div className="bg-green-300 flex flex-row w-[85%] h-[90%]  gap-2 container p-5 rounded-4xl b">
         <div className="w-2/3 rounded-4xl">
           <img src={image} alt="" />

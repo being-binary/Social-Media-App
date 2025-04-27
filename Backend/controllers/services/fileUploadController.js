@@ -1,6 +1,7 @@
 import multer from 'multer'
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { promises as fs } from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -43,7 +44,6 @@ class FileUpload {
         }
         try {
             const result = await cloudinary.uploadImages(req.files)
-            console.log(Array.isArray(result));
             const media = result.map((media) => {
                 return { secure_url: media.secure_url, public_id: media.public_id }
             });
@@ -51,16 +51,16 @@ class FileUpload {
 
             // Process the file (e.g., upload to cloud storage)
             // After processing, delete the file
-            // for (const file of req.files) {
-            //     fs.unlink(file.path, (err) => {
-            //         if (err) {
-            //             console.error('Error deleting file:', err);
-            //         }
-            //     });
-            // }
+            for (const file of req.files) {
+                await fs.unlink(file.path, (err) => {
+                    if (err) {
+                        console.error('Error deleting file:', err);
+                    }
+                });
+            }
             next()
         } catch (err) {
-            res.status(400).json({ msg: 'Upload Unsuccessful', success: false, files: req.files });
+            res.status(400).json({ msg: err.message , success: false, files: req.files });
         }
     }
 

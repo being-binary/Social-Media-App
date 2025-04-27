@@ -21,7 +21,7 @@ const FriendPage = () => {
         fetchFriendDetails()
     },[])
     return (
-        <div className='container m-auto lg:px-20 gap-2  bg-green-300 '>
+        <div className='container m-auto lg:px-20 gap-2'>
             <SidebarComponent value={{ entity: frienddetails,  fetchFriendDetails }} />
             <MainBarComponent value={{userPosts : friendposts}} />
         </div>

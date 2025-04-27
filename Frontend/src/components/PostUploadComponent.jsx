@@ -12,13 +12,13 @@ import axiosInstance from '../api/AxiosInstance';
 import { toasterror, toastinfo, toastsuccess } from './Toast';
 import CarouselComponent from './subComponents/CarouselComponent'
 
-const PostUploadComponent = () => {
+const PostUploadComponent = (props) => {
     const [showEmojiBox, setShowEmojiBox] = useState(false);
     const [text, setText] = useState('');
     const [selectForm, setselectForm] = useState(1);
     const [isOpen, setIsOpen] = useState(false);
     const [uploadImages, setUploadImages] = useState([]);
-
+    console.log(props.fetchPost)
     const handleInputChanger = (e) => {
         setShowEmojiBox(false)
         let value = e.target.value;
@@ -53,6 +53,7 @@ const PostUploadComponent = () => {
                 if(data.success){
                     toastsuccess(data.msg)
                     setText('')
+                    await props.fetchPost()
                 }
                 else{
                     toasterror(data.msg)
@@ -81,6 +82,7 @@ const PostUploadComponent = () => {
                 toastsuccess(data.msg)
                 setUploadImages([])
                 setText('')
+                await props.fetchPost()
             }
             else{
                 toasterror(data.msg)

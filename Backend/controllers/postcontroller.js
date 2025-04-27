@@ -8,7 +8,7 @@ class PostController {
         try {
             const { id, media } = req;
             const { title } = req.body;
-            console.log('hello')
+            
             if (!title) {
                 res.status(400).json({ msg: "title data is required", success: false });
             }
@@ -18,8 +18,6 @@ class PostController {
             if(media){
                 pkg['media'] = media
             }
-            
-            console.log(pkg)
             
             await postCollection.create({ ...pkg })
                 .then((post) => {

@@ -33,9 +33,9 @@ const Login = () => {
         }
     };
     return (
-        <div className='w-full h-[110vh] flex items-center justify-center p-10 lg:px-40 md:px-15 sm:px-5'>
+        <div className='w-[1328px] h-[720px] flex items-center justify-center p-10 lg:px-40 md:px-15 sm:px-5'>
             <div className='w-full h-full bg-blue-200 rounded-4xl flex md:flex-row flex-col overflow-hidden  relative gap-2 p-4'>
-                <img src={imagelogo} width={'700px'} className='h-[120%] absolute bottom-2 right-[45%]' />
+                <img src={imagelogo} width={'700px'} className='h-[120%] absolute bottom-2 right-[45%] md:block hidden' />
                 <div className='block md:h-full h-[400px] md:w-1/2 sm:w-full rounded-4xl '>
                 </div>
                 <div className='h-full md:w-1/2 sm:w-full bg-white rounded-4xl flex flex-col items-center justify-center gap-5'>

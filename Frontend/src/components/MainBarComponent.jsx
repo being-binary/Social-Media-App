@@ -30,7 +30,7 @@ const MainBarComponent = (props) => {
   return (
     <div className='lg:ps-[350px] md:ps-[120px] sm:m-0 m-auto'>
       <div>
-        <PostUploadComponent />
+        <PostUploadComponent fetchPost={fetchPost} />
         {
           posts.map((post, index) => {
             return <span key={index}>
